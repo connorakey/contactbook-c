@@ -21,6 +21,7 @@ int main() {
     printf("4. View Contacts\n");
     printf("5. Wipe Contacts\n");
     printf("6. Exit\n");
+    printf("Enter your choice (1-6): ");
     scanf("%d", &choice);
     while (getchar() != '\n');
     switch (choice) {
