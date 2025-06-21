@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define CSV_FILE "data.csv"
+#include "config.h" // Includes configuration of lengths and where data is stored
 
 // function definitions
 void addContact(const char *name, const char *phone, const char *email);
@@ -27,9 +27,9 @@ int main() {
       ;
     switch (choice) {
     case 1: {
-      char name[50];
-      char phone[25];
-      char email[321];
+      char name[MAXIMUM_CHARACTERS_NAME];
+      char phone[MAXIMUM_CHARACTERS_PHONE];
+      char email[MAXIMUM_CHARACTERS_EMAIL];
 
       printf("What is your contacts name?: ");
       fgets(name, sizeof(name), stdin);
@@ -68,7 +68,7 @@ int main() {
       break;
     }
     case 2: {
-      char name[50];
+      char name[MAXIMUM_CHARACTERS_NAME];
 
       printf("What is the name of the contact you wish to remove?: ");
       fgets(name, sizeof(name), stdin);
@@ -78,7 +78,7 @@ int main() {
       break;
     }
     case 3: {
-      char name[50];
+      char name[MAXIMUM_CHARACTERS_NAME];
       printf("What is the name of the contact?: ");
       fgets(name, sizeof(name), stdin);
       name[strcspn(name, "\n")] = '\0';
