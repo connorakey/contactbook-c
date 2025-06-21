@@ -29,7 +29,7 @@ The reason why I choose the length of each is documented within the config.h fil
 # Installation
 **Keep in mind you can choose if you want to use clang or gcc no matter the OS (gcc is recommended for linux and windows, clang is recommended for mac).**
 
-Linux:
+Linux/Other Unix Related Systems:
 ```bash
     git clone https://github.com/connorakey/contactbook-c
     cd contactbook-c
