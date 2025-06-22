@@ -163,7 +163,12 @@ void removeContact(const char *name) {
   char line[2056];
   while (fgets(line, sizeof(line), fp)) {
     char lineCopy[2056];
+<<<<<<< HEAD
     strcpy(lineCopy, line);
+=======
+    strncpy(lineCopy, line, sizeof(lineCopy) - 1);
+    lineCopy[sizeof(lineCopy) - 1] = '\0';
+>>>>>>> 42c17a8 (Fixed buffer overflow possibility, formatted code.)
 
     char *start = lineCopy;
     char *end = NULL;
@@ -191,10 +196,14 @@ void removeContact(const char *name) {
   fclose(fp);
   fclose(tmp);
 
+<<<<<<< HEAD
   if (remove(CSV_FILE) != 0) {
     perror("Failed to delete contact (failed to delete data.csv file)");
     return;
   }
+=======
+  remove(CSV_FILE); // needed for Windows
+>>>>>>> 42c17a8 (Fixed buffer overflow possibility, formatted code.)
   if (rename("temp.csv", CSV_FILE) != 0) {
     perror("Failed to rename temp.csv to data.csv");
     return;
@@ -211,7 +220,12 @@ int findContact(const char *name) {
   char line[2056];
   while (fgets(line, sizeof(line), fp)) {
     char lineCopy[2056];
+<<<<<<< HEAD
     strcpy(lineCopy, line);
+=======
+    strncpy(lineCopy, line, sizeof(lineCopy) - 1);
+    lineCopy[sizeof(lineCopy) - 1] = '\0';
+>>>>>>> 42c17a8 (Fixed buffer overflow possibility, formatted code.)
 
     char *start = lineCopy;
     char *end = NULL;
@@ -283,12 +297,20 @@ int findContact(const char *name) {
       printf("Email: %s\n", emailStart);
 
       fclose(fp);
+<<<<<<< HEAD
       return 0;
+=======
+      return 1;
+>>>>>>> 42c17a8 (Fixed buffer overflow possibility, formatted code.)
     }
   }
 
   fclose(fp);
+<<<<<<< HEAD
   return 1;
+=======
+  return 0;
+>>>>>>> 42c17a8 (Fixed buffer overflow possibility, formatted code.)
 }
 
 void viewContacts() {
@@ -301,7 +323,12 @@ void viewContacts() {
   char line[2056];
   while (fgets(line, sizeof(line), fp)) {
     char lineCopy[2056];
+<<<<<<< HEAD
     strcpy(lineCopy, line);
+=======
+    strncpy(lineCopy, line, sizeof(lineCopy) - 1);
+    lineCopy[sizeof(lineCopy) - 1] = '\0';
+>>>>>>> 42c17a8 (Fixed buffer overflow possibility, formatted code.)
 
     char *start = lineCopy;
     char *end = NULL;
@@ -372,6 +399,10 @@ void viewContacts() {
 
   fclose(fp);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 42c17a8 (Fixed buffer overflow possibility, formatted code.)
 void deleteData() {
   if (remove(CSV_FILE) == 0) {
     printf("Data deleted sucessfully.\n");
